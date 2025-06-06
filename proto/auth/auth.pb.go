@@ -148,7 +148,7 @@ const file_proto_auth_auth_proto_rawDesc = "" +
 	"\busername\x18\x03 \x01(\tR\busername\x12#\n" +
 	"\rerror_message\x18\x04 \x01(\tR\ferrorMessage2W\n" +
 	"\vAuthService\x12H\n" +
-	"\rValidateToken\x12\x1a.auth.ValidateTokenRequest\x1a\x1b.auth.ValidateTokenResponseB2Z0github.com/rehanazhar/shopeezy-protos/proto/authb\x06proto3"
+	"\rValidateToken\x12\x1a.auth.ValidateTokenRequest\x1a\x1b.auth.ValidateTokenResponseB:Z8github.com/RehanAthallahAzhar/shopeezy-protos/proto/authb\x06proto3"
 
 var (
 	file_proto_auth_auth_proto_rawDescOnce sync.Once
