@@ -72,7 +72,8 @@ type ValidateTokenResponse struct {
 	IsValid       bool                   `protobuf:"varint,1,opt,name=is_valid,json=isValid,proto3" json:"is_valid,omitempty"`
 	UserId        string                 `protobuf:"bytes,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Username      string                 `protobuf:"bytes,3,opt,name=username,proto3" json:"username,omitempty"`
-	ErrorMessage  string                 `protobuf:"bytes,4,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"` // Add for specific error message
+	Role          string                 `protobuf:"bytes,4,opt,name=role,proto3" json:"role,omitempty"`
+	ErrorMessage  string                 `protobuf:"bytes,5,opt,name=error_message,json=errorMessage,proto3" json:"error_message,omitempty"` // Add for specific error message
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -128,6 +129,13 @@ func (x *ValidateTokenResponse) GetUsername() string {
 	return ""
 }
 
+func (x *ValidateTokenResponse) GetRole() string {
+	if x != nil {
+		return x.Role
+	}
+	return ""
+}
+
 func (x *ValidateTokenResponse) GetErrorMessage() string {
 	if x != nil {
 		return x.ErrorMessage
@@ -141,12 +149,13 @@ const file_proto_auth_auth_proto_rawDesc = "" +
 	"\n" +
 	"\x15proto/auth/auth.proto\x12\x04auth\",\n" +
 	"\x14ValidateTokenRequest\x12\x14\n" +
-	"\x05token\x18\x01 \x01(\tR\x05token\"\x8c\x01\n" +
+	"\x05token\x18\x01 \x01(\tR\x05token\"\xa0\x01\n" +
 	"\x15ValidateTokenResponse\x12\x19\n" +
 	"\bis_valid\x18\x01 \x01(\bR\aisValid\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\x12\x1a\n" +
-	"\busername\x18\x03 \x01(\tR\busername\x12#\n" +
-	"\rerror_message\x18\x04 \x01(\tR\ferrorMessage2W\n" +
+	"\busername\x18\x03 \x01(\tR\busername\x12\x12\n" +
+	"\x04role\x18\x04 \x01(\tR\x04role\x12#\n" +
+	"\rerror_message\x18\x05 \x01(\tR\ferrorMessage2W\n" +
 	"\vAuthService\x12H\n" +
 	"\rValidateToken\x12\x1a.auth.ValidateTokenRequest\x1a\x1b.auth.ValidateTokenResponseB:Z8github.com/RehanAthallahAzhar/shopeezy-protos/proto/authb\x06proto3"
 

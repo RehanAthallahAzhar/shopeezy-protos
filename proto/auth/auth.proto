@@ -14,7 +14,8 @@ message ValidateTokenResponse {
   bool is_valid = 1;
   string user_id = 2;
   string username = 3;
-  string error_message = 4; // Add for specific error message
+  string role = 4;
+  string error_message = 5; // Add for specific error message
 }
 
 // AuthService is a service for authentication and authorization.
