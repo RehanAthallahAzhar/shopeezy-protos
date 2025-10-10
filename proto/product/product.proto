@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package product;
+
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb";
+
+import "google/protobuf/timestamp.proto";
+
+service ProductService {
+    rpc GetProducts(GetProductsRequest) returns (GetProductsResponse);
+}
+
+message Product {
+    string id = 1;
+    string seller_id = 2;
+    string name = 3;
+    int32 price = 4;
+    int32 stock = 5;
+    string description = 8;
+    google.protobuf.Timestamp created_at = 9;
+    google.protobuf.Timestamp updated_at = 10;
+}
+
+message GetProductsRequest {
+    repeated string ids = 1; // "repeated" berarti ini adalah sebuah list/array
+}
+
+message GetProductsResponse {
+    repeated Product products = 1;
+}

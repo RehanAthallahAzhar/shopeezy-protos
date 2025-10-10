@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package auth;
 
-option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/proto/auth";
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb";
 
 // ValidateTokenRequest is a message for token validation request.
 message ValidateTokenRequest {

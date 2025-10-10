@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package cart;
+
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb";
+
+service CartService {
+    rpc GetCart(GetCartRequest) returns (Cart);
+}
+
+// Message yang merepresentasikan satu item di dalam keranjang
+message CartItem {
+    string id = 1;
+    string product_id = 2;
+    int32 quantity = 3;
+}
+
+// Message yang merepresentasikan keseluruhan keranjang
+message Cart {
+    string user_id = 1;
+    repeated CartItem items = 2; // "repeated" berarti ini adalah sebuah list/array
+}
+
+// Request untuk mengambil keranjang
+message GetCartRequest {
+    string user_id = 1;
+}
