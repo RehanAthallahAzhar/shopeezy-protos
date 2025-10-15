@@ -4,7 +4,7 @@
 // - protoc             v6.32.1
 // source: auth/auth.proto
 
-package pb
+package auth
 
 import (
 	context "context"
@@ -25,10 +25,7 @@ const (
 // AuthServiceClient is the client API for AuthService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-//
-// AuthService is a service for authentication and authorization.
 type AuthServiceClient interface {
-	// ValidateToken validates the token provided and returns the user details.
 	ValidateToken(ctx context.Context, in *ValidateTokenRequest, opts ...grpc.CallOption) (*ValidateTokenResponse, error)
 }
 
@@ -53,10 +50,7 @@ func (c *authServiceClient) ValidateToken(ctx context.Context, in *ValidateToken
 // AuthServiceServer is the server API for AuthService service.
 // All implementations must embed UnimplementedAuthServiceServer
 // for forward compatibility.
-//
-// AuthService is a service for authentication and authorization.
 type AuthServiceServer interface {
-	// ValidateToken validates the token provided and returns the user details.
 	ValidateToken(context.Context, *ValidateTokenRequest) (*ValidateTokenResponse, error)
 	mustEmbedUnimplementedAuthServiceServer()
 }

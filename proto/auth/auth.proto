@@ -2,14 +2,16 @@ syntax = "proto3";
 
 package auth;
 
-option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb";
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb/auth";
 
-// ValidateTokenRequest is a message for token validation request.
+service AuthService {
+  rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
 message ValidateTokenRequest {
   string token = 1;
 }
 
-// ValidateTokenResponse is the message for the token validation response.
 message ValidateTokenResponse {
   bool is_valid = 1;
   string user_id = 2;
@@ -18,8 +20,3 @@ message ValidateTokenResponse {
   string error_message = 5; // Add for specific error message
 }
 
-// AuthService is a service for authentication and authorization.
-service AuthService {
-  // ValidateToken validates the token provided and returns the user details.
-  rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
-}

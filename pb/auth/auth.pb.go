@@ -4,7 +4,7 @@
 // 	protoc        v6.32.1
 // source: auth/auth.proto
 
-package pb
+package auth
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -21,7 +21,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// ValidateTokenRequest is a message for token validation request.
 type ValidateTokenRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Token         string                 `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
@@ -66,7 +65,6 @@ func (x *ValidateTokenRequest) GetToken() string {
 	return ""
 }
 
-// ValidateTokenResponse is the message for the token validation response.
 type ValidateTokenResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	IsValid       bool                   `protobuf:"varint,1,opt,name=is_valid,json=isValid,proto3" json:"is_valid,omitempty"`
@@ -157,7 +155,7 @@ const file_auth_auth_proto_rawDesc = "" +
 	"\x04role\x18\x04 \x01(\tR\x04role\x12#\n" +
 	"\rerror_message\x18\x05 \x01(\tR\ferrorMessage2W\n" +
 	"\vAuthService\x12H\n" +
-	"\rValidateToken\x12\x1a.auth.ValidateTokenRequest\x1a\x1b.auth.ValidateTokenResponseB2Z0github.com/RehanAthallahAzhar/shopeezy-protos/pbb\x06proto3"
+	"\rValidateToken\x12\x1a.auth.ValidateTokenRequest\x1a\x1b.auth.ValidateTokenResponseB7Z5github.com/RehanAthallahAzhar/shopeezy-protos/pb/authb\x06proto3"
 
 var (
 	file_auth_auth_proto_rawDescOnce sync.Once

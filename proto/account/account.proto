@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package account;
+
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb/account";
+
+service AccountService {
+    rpc GetUser(GetUserRequest) returns (User);
+    rpc GetUsers(GetUsersRequest) returns (GetUsersResponse);
+}
+
+message User {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string phone_number = 4;
+    string address = 5;
+}
+
+message GetUserRequest {
+    string id = 1;
+}
+
+message GetUsersRequest {
+    repeated string ids = 1;
+}
+
+message GetUsersResponse {
+    repeated User users = 1;
+}
+
+message SellerRequest {
+    string id = 1;
+}
+
+message SellerResponse {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+}
+

@@ -4,7 +4,7 @@
 // - protoc             v6.32.1
 // source: cart/cart.proto
 
-package pb
+package cart
 
 import (
 	context "context"

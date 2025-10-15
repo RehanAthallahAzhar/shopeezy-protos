@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package product;
 
-option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb";
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb/product";
 
 import "google/protobuf/timestamp.proto";
 

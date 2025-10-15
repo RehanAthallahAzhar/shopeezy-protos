@@ -4,11 +4,12 @@
 // 	protoc        v6.32.1
 // source: cart/cart.proto
 
-package pb
+package cart
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -87,6 +88,8 @@ type Cart struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	UserId        string                 `protobuf:"bytes,1,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	Items         []*CartItem            `protobuf:"bytes,2,rep,name=items,proto3" json:"items,omitempty"` // "repeated" berarti ini adalah sebuah list/array
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,9,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -131,6 +134,20 @@ func (x *Cart) GetUserId() string {
 func (x *Cart) GetItems() []*CartItem {
 	if x != nil {
 		return x.Items
+	}
+	return nil
+}
+
+func (x *Cart) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *Cart) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
 	}
 	return nil
 }
@@ -184,20 +201,24 @@ var File_cart_cart_proto protoreflect.FileDescriptor
 
 const file_cart_cart_proto_rawDesc = "" +
 	"\n" +
-	"\x0fcart/cart.proto\x12\x04cart\"U\n" +
+	"\x0fcart/cart.proto\x12\x04cart\x1a\x1fgoogle/protobuf/timestamp.proto\"U\n" +
 	"\bCartItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
 	"product_id\x18\x02 \x01(\tR\tproductId\x12\x1a\n" +
-	"\bquantity\x18\x03 \x01(\x05R\bquantity\"E\n" +
+	"\bquantity\x18\x03 \x01(\x05R\bquantity\"\xbb\x01\n" +
 	"\x04Cart\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12$\n" +
-	"\x05items\x18\x02 \x03(\v2\x0e.cart.CartItemR\x05items\")\n" +
+	"\x05items\x18\x02 \x03(\v2\x0e.cart.CartItemR\x05items\x129\n" +
+	"\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"\n" +
+	"updated_at\x18\t \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\")\n" +
 	"\x0eGetCartRequest\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId2:\n" +
 	"\vCartService\x12+\n" +
 	"\aGetCart\x12\x14.cart.GetCartRequest\x1a\n" +
-	".cart.CartB2Z0github.com/RehanAthallahAzhar/shopeezy-protos/pbb\x06proto3"
+	".cart.CartB7Z5github.com/RehanAthallahAzhar/shopeezy-protos/pb/cartb\x06proto3"
 
 var (
 	file_cart_cart_proto_rawDescOnce sync.Once
@@ -213,19 +234,22 @@ func file_cart_cart_proto_rawDescGZIP() []byte {
 
 var file_cart_cart_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_cart_cart_proto_goTypes = []any{
-	(*CartItem)(nil),       // 0: cart.CartItem
-	(*Cart)(nil),           // 1: cart.Cart
-	(*GetCartRequest)(nil), // 2: cart.GetCartRequest
+	(*CartItem)(nil),              // 0: cart.CartItem
+	(*Cart)(nil),                  // 1: cart.Cart
+	(*GetCartRequest)(nil),        // 2: cart.GetCartRequest
+	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_cart_cart_proto_depIdxs = []int32{
 	0, // 0: cart.Cart.items:type_name -> cart.CartItem
-	2, // 1: cart.CartService.GetCart:input_type -> cart.GetCartRequest
-	1, // 2: cart.CartService.GetCart:output_type -> cart.Cart
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	3, // 1: cart.Cart.created_at:type_name -> google.protobuf.Timestamp
+	3, // 2: cart.Cart.updated_at:type_name -> google.protobuf.Timestamp
+	2, // 3: cart.CartService.GetCart:input_type -> cart.GetCartRequest
+	1, // 4: cart.CartService.GetCart:output_type -> cart.Cart
+	4, // [4:5] is the sub-list for method output_type
+	3, // [3:4] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_cart_cart_proto_init() }

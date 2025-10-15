@@ -2,7 +2,9 @@ syntax = "proto3";
 
 package cart;
 
-option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb";
+option go_package = "github.com/RehanAthallahAzhar/shopeezy-protos/pb/cart";
+
+import "google/protobuf/timestamp.proto";
 
 service CartService {
     rpc GetCart(GetCartRequest) returns (Cart);
@@ -19,6 +21,8 @@ message CartItem {
 message Cart {
     string user_id = 1;
     repeated CartItem items = 2; // "repeated" berarti ini adalah sebuah list/array
+    google.protobuf.Timestamp created_at = 8;
+    google.protobuf.Timestamp updated_at = 9;
 }
 
 // Request untuk mengambil keranjang

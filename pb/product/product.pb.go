@@ -4,7 +4,7 @@
 // 	protoc        v6.32.1
 // source: product/product.proto
 
-package pb
+package product
 
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
@@ -232,7 +232,7 @@ const file_product_product_proto_rawDesc = "" +
 	"\x13GetProductsResponse\x12,\n" +
 	"\bproducts\x18\x01 \x03(\v2\x10.product.ProductR\bproducts2Z\n" +
 	"\x0eProductService\x12H\n" +
-	"\vGetProducts\x12\x1b.product.GetProductsRequest\x1a\x1c.product.GetProductsResponseB2Z0github.com/RehanAthallahAzhar/shopeezy-protos/pbb\x06proto3"
+	"\vGetProducts\x12\x1b.product.GetProductsRequest\x1a\x1c.product.GetProductsResponseB:Z8github.com/RehanAthallahAzhar/shopeezy-protos/pb/productb\x06proto3"
 
 var (
 	file_product_product_proto_rawDescOnce sync.Once
