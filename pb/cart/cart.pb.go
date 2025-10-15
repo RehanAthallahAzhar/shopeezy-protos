@@ -28,6 +28,9 @@ type CartItem struct {
 	Id            string                 `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
 	ProductId     string                 `protobuf:"bytes,2,opt,name=product_id,json=productId,proto3" json:"product_id,omitempty"`
 	Quantity      int32                  `protobuf:"varint,3,opt,name=quantity,proto3" json:"quantity,omitempty"`
+	Description   string                 `protobuf:"bytes,4,opt,name=description,proto3" json:"description,omitempty"`
+	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,5,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	UpdatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=updated_at,json=updatedAt,proto3" json:"updated_at,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -81,6 +84,27 @@ func (x *CartItem) GetQuantity() int32 {
 		return x.Quantity
 	}
 	return 0
+}
+
+func (x *CartItem) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+func (x *CartItem) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
+func (x *CartItem) GetUpdatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.UpdatedAt
+	}
+	return nil
 }
 
 // Message yang merepresentasikan keseluruhan keranjang
@@ -201,12 +225,17 @@ var File_cart_cart_proto protoreflect.FileDescriptor
 
 const file_cart_cart_proto_rawDesc = "" +
 	"\n" +
-	"\x0fcart/cart.proto\x12\x04cart\x1a\x1fgoogle/protobuf/timestamp.proto\"U\n" +
+	"\x0fcart/cart.proto\x12\x04cart\x1a\x1fgoogle/protobuf/timestamp.proto\"\xed\x01\n" +
 	"\bCartItem\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1d\n" +
 	"\n" +
 	"product_id\x18\x02 \x01(\tR\tproductId\x12\x1a\n" +
-	"\bquantity\x18\x03 \x01(\x05R\bquantity\"\xbb\x01\n" +
+	"\bquantity\x18\x03 \x01(\x05R\bquantity\x12 \n" +
+	"\vdescription\x18\x04 \x01(\tR\vdescription\x129\n" +
+	"\n" +
+	"created_at\x18\x05 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\x129\n" +
+	"\n" +
+	"updated_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tupdatedAt\"\xbb\x01\n" +
 	"\x04Cart\x12\x17\n" +
 	"\auser_id\x18\x01 \x01(\tR\x06userId\x12$\n" +
 	"\x05items\x18\x02 \x03(\v2\x0e.cart.CartItemR\x05items\x129\n" +
@@ -240,16 +269,18 @@ var file_cart_cart_proto_goTypes = []any{
 	(*timestamppb.Timestamp)(nil), // 3: google.protobuf.Timestamp
 }
 var file_cart_cart_proto_depIdxs = []int32{
-	0, // 0: cart.Cart.items:type_name -> cart.CartItem
-	3, // 1: cart.Cart.created_at:type_name -> google.protobuf.Timestamp
-	3, // 2: cart.Cart.updated_at:type_name -> google.protobuf.Timestamp
-	2, // 3: cart.CartService.GetCart:input_type -> cart.GetCartRequest
-	1, // 4: cart.CartService.GetCart:output_type -> cart.Cart
-	4, // [4:5] is the sub-list for method output_type
-	3, // [3:4] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	3, // 0: cart.CartItem.created_at:type_name -> google.protobuf.Timestamp
+	3, // 1: cart.CartItem.updated_at:type_name -> google.protobuf.Timestamp
+	0, // 2: cart.Cart.items:type_name -> cart.CartItem
+	3, // 3: cart.Cart.created_at:type_name -> google.protobuf.Timestamp
+	3, // 4: cart.Cart.updated_at:type_name -> google.protobuf.Timestamp
+	2, // 5: cart.CartService.GetCart:input_type -> cart.GetCartRequest
+	1, // 6: cart.CartService.GetCart:output_type -> cart.Cart
+	6, // [6:7] is the sub-list for method output_type
+	5, // [5:6] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_cart_cart_proto_init() }

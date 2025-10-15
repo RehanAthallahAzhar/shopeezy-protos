@@ -15,6 +15,10 @@ message CartItem {
     string id = 1;
     string product_id = 2;
     int32 quantity = 3;
+    string description = 4;
+    google.protobuf.Timestamp created_at = 5;
+    google.protobuf.Timestamp updated_at = 6;
+
 }
 
 // Message yang merepresentasikan keseluruhan keranjang
